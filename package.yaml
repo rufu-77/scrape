@@ -1,0 +1,94 @@
+name: scrape
+version: '0.1.0.0'
+synopsis: Scrape and classify classifieds
+description: Very crude and incomplete web scraper
+category: Web
+author: Author name here
+maintainer: example@example.com
+copyright: 2017 Author name here
+license: BSD3
+homepage: https://github.com/githubuser/scrape#readme
+dependencies:
+- async >= 2.1.1.1
+- base >=4.7 && <5
+- scalpel >=0.3
+- tagsoup >=0.14
+- http-client-tls >=0.2.4.1
+- http-client >=0.4.31.2
+- http-types >=0.9.1
+- criterion >=1.4.1
+- bytestring >=0.10
+- hslogger >=1.2.10
+- html-conduit >=1.1
+- hxt-css >=0.1
+- hxt >=9.3
+- lifted-async >=0.10.0.3
+- regex-tdfa-text >= 1.0.0.3
+- regex-tdfa >= 1.2.2
+- regex-base >= 0.93.2
+- monad-logger >= 0.3
+- mtl >= 2.2.2
+- network-uri >=2.6.1
+- optparse-generic >=0.4.12
+- sqlite-simple >=0.4.12
+- stm >= 2.4.5.1
+- text >= 1.2.2.1
+- token-bucket >=0.1
+- tostring >=0.2.1.1
+- xml-conduit >=1.2
+- hashable >= 1.2.6.1
+- unordered-containers >= 0.2
+
+executables:
+  scrape:
+    main: Main.hs
+    source-dirs: main
+    dependencies: scrape
+    ghc-options: -O2 -rtsopts -fprof-auto -fprof-cafs -Wall
+
+library:
+    source-dirs: src
+    ghc-options: -fprof-auto -fprof-cafs -Wall
+    exposed-modules:
+    - BrowseMode
+    - Db
+    - HashContent
+    - Infrastructure
+    - Scrape
+    - ScrapeGumtreeAd
+    - Search
+    - SearchMode
+    - Logger
+
+tests:
+
+  scrape-unit-test:
+    main: UnitTest.hs
+    ghc-options: -rtsopts -fprof-auto -fprof-cafs -Wall
+    source-dirs:
+    - test/unit
+    dependencies:
+    - scrape
+    - filepath
+    - hspec
+
+  scrape-property:
+    main: PropertyTest.hs
+    ghc-options: -rtsopts -fprof-auto -fprof-cafs -Wall
+    source-dirs:
+    - test/property
+    dependencies:
+    - scrape
+    - hedgehog >=0.2.2
+
+benchmarks:
+
+  scrape-bench:
+    main: Benchmark.hs
+    ghc-options: -O2 -rtsopts -fprof-auto -fprof-cafs -Wall
+    source-dirs:
+    - bench
+    dependencies:
+    - scrape
+    - filepath
+    - criterion

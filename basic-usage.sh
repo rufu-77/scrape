@@ -1,0 +1,1 @@
+scrape fetch "https://www.gumtree.pl/a-mieszkania-i-domy-sprzedam-i-kupie/krakow/nowoczesny-i-przestronny-dom-276m2-2018-rok-luksusowy-standard-energooszczedny-krakow-wegrzce/1003150974170911459345409" | scrape match cracow-north-realestate.rules

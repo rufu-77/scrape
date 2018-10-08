@@ -1,0 +1,14 @@
+*.stderr
+*.stdout
+*.hp
+*.prof
+*.log
+*.eventlog
+*.cabal
+*.png
+*.svg
+*.gdb_history
+.stack-work
+core
+TAGS
+scrape.db
